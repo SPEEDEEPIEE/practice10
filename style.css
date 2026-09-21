@@ -1,7 +1,14 @@
 body {
     font-family: Arial;
+    background-color: #fdf4e3;
+}
+
+h1 {
+    background-color: aquamarine;
+    width: 27%;
 }
 
 p {
-    color: brown;
+    color: rgb(12, 129, 231);
 }
+
