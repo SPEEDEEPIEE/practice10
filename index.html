@@ -16,6 +16,31 @@
 </ul>
 
 <p>Я еще рэп читать умею, и стихотворения, ну и этот проект частично описывает мою трагичную судьбу</p>
-
+ <h2>Регистрация</h2>
+    <form action="/register" method="post">
+        <div class="form-group">
+            <label for="name">Имя:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Электронная почта:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+            <label for="confirm_password">Повторите пароль:</label>
+            <input type="password" id="confirm_password" name="confirm_password" required>
+        </div>
+        <div class="form-group">
+            <label>
+                <input type="checkbox" name="agreement" required>
+                Я принимаю условия
+            </label>
+        </div>
+        <button type="submit">Зарегистрироваться</button>
+    </form>
 </body>
 </html>
