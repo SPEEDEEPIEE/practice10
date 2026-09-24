@@ -543,4 +543,119 @@ nav {
   .search-btn { width: 100%; }
   .cta-group { gap: 1rem; }
   .glam-btn.large { padding: 0.8rem 1.5rem; font-size: 1rem; }
+}   
+
+/* === КНОПКА "НАВЕРХ" === */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+  border: 1px solid rgba(212, 175, 55, 0.6);
+  color: #D4AF37;
+  font-size: 1.3rem;
+  cursor: pointer;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.7), 0 0 20px rgba(212, 175, 55, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.scroll-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-top-btn:hover {
+  background: linear-gradient(145deg, #2a2a2a, #3a3a3a);
+  border-color: #D4AF37;
+  color: #fff;
+  box-shadow: 0 0 40px rgba(212, 175, 55, 0.7);
+  transform: translateY(-4px) scale(1.05);
+}
+
+.scroll-top-btn:active {
+  transform: translateY(0) scale(0.95);
+}
+
+/* === СЧЁТЧИК ПОСЕТИТЕЛЕЙ === */
+.visitor-counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: 2rem auto 1rem;
+  padding: 0.9rem 2rem;
+  background: rgba(20, 20, 25, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 50px;
+  width: fit-content;
+  font-size: 0.95rem;
+  color: #ccc;
+  letter-spacing: 0.5px;
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.1);
+  animation: counterPulse 3s infinite ease-in-out;
+}
+
+.visitor-counter strong {
+  color: #D4AF37;
+  text-shadow: 0 0 12px rgba(212, 175, 55, 0.8);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes counterPulse {
+  0%, 100% { box-shadow: 0 0 30px rgba(212, 175, 55, 0.1); }
+  50% { box-shadow: 0 0 45px rgba(212, 175, 55, 0.35); }
+}
+
+/* === УЛУЧШЕННАЯ АНИМАЦИЯ КАРТОЧЕК === */
+.card {
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(212, 175, 55, 0.08) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  transition: transform 0.8s ease;
+  pointer-events: none;
+}
+
+.card:hover::before {
+  transform: translateX(100%) translateY(100%) rotate(45deg);
+}
+
+/* === АДАПТИВ ДЛЯ НОВЫХ ЭЛЕМЕНТОВ === */
+@media (max-width: 800px) {
+  .scroll-top-btn {
+    width: 48px;
+    height: 48px;
+    bottom: 20px;
+    right: 20px;
+    font-size: 1.1rem;
+  }
+  .visitor-counter {
+    font-size: 0.8rem;
+    padding: 0.7rem 1.4rem;
+  }
 }

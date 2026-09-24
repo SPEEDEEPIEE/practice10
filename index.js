@@ -96,4 +96,70 @@ document.addEventListener('DOMContentLoaded', () => {
       alert('📱 Мы в соцсетях!\n\nПодпишитесь, чтобы первыми узнавать о новых гламурных маршрутах.');
     });
   });
+    // 8. Кнопка "Наверх" — плавная прокрутка
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+  if (scrollTopBtn) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        scrollTopBtn.classList.add('visible');
+      } else {
+        scrollTopBtn.classList.remove('visible');
+      }
+    });
+
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+      // Гламурный отклик
+      scrollTopBtn.style.boxShadow = '0 0 60px #D4AF37, 0 0 100px #ffd700';
+      setTimeout(() => {
+        scrollTopBtn.style.boxShadow = '';
+      }, 500);
+    });
+  }
+
+  // 9. Счётчик посетителей — "живая" анимация
+  const visitorCount = document.getElementById('visitorCount');
+  if (visitorCount) {
+    let count = 1247;
+    
+    // Плавное появление начального значения
+    const targetStart = count;
+    let currentStart = 1000;
+    const startInterval = setInterval(() => {
+      currentStart += Math.floor(Math.random() * 15) + 5;
+      if (currentStart >= targetStart) {
+        currentStart = targetStart;
+        clearInterval(startInterval);
+      }
+      visitorCount.textContent = currentStart.toLocaleString('ru-RU');
+    }, 40);
+
+    // Периодическое "живое" обновление
+    setInterval(() => {
+      const change = Math.floor(Math.random() * 7) - 3; // от -3 до +3
+      count = Math.max(1100, Math.min(1500, count + change));
+      visitorCount.textContent = count.toLocaleString('ru-RU');
+      
+      // Лёгкая вспышка при изменении
+      visitorCount.style.transition = 'all 0.3s';
+      visitorCount.style.textShadow = '0 0 25px #D4AF37, 0 0 40px #ffd700';
+      setTimeout(() => {
+        visitorCount.style.textShadow = '0 0 12px rgba(212, 175, 55, 0.8)';
+      }, 300);
+    }, 3500);
+  }
+
+  // 10. Параллакс-эффект для поезда (слегка двигается за курсором)
+  const trainGlam = document.querySelector('.train-glam');
+  if (trainGlam && window.innerWidth > 800) {
+    document.addEventListener('mousemove', (e) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 20;
+      const y = (e.clientY / window.innerHeight - 0.5) * 10;
+      trainGlam.style.transform = `translate(${x}px, ${y}px)`;
+      trainGlam.style.transition = 'transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+    });
+  }
 });
