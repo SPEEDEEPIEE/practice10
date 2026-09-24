@@ -1,49 +1,143 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <title>Мой проект</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAIL LUXE · билеты будущего</title>
+  <!-- Google Fonts для гламура -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <!-- Font Awesome для иконок -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Мой учебный проект</h1>
-    <img src="https://memepedia.ru/wp-content/uploads/2024/12/plankton.jpg" alt="plankton"
-    width="50%"
-    height="50%">
-    <p>Это моя первая работа с системой контроля версий.</p>
-    <h2>Мои навыки</h2>
+  <!-- Фоновые светящиеся линии -->
+  <div class="glow-bg"></div>
+  <div class="glow-bg second"></div>
 
-<ul>
-    <li>HTML</li>
-    <li>CSS</li>
-    <li>Git</li>
-</ul>
+  <!-- Основной контейнер -->
+  <div class="main-wrapper">
+    <!-- Хедер с логотипом -->
+    <header class="glam-header">
+      <div class="logo">
+        <i class="fas fa-train"></i>
+        <span>RAIL<span class="gold">LUXE</span></span>
+      </div>
+      <nav>
+        <a href="#" class="nav-link active">Билеты</a>
+        <a href="#" class="nav-link">Маршруты</a>
+        <a href="#" class="nav-link">ВИП-зал</a>
+        <a href="#" class="nav-link">Контакты</a>
+      </nav>
+      <button class="glam-btn small"><i class="fas fa-user"></i> Войти</button>
+    </header>
 
-<p>Я еще рэп читать умею, и стихотворения, ну и этот проект частично описывает мою трагичную судьбу</p>
- <h2>Регистрация</h2>
-    <form action="/register" method="post">
-        <div class="form-group">
-            <label for="name">Имя:</label>
-            <input type="text" id="name" name="name" required>
+    <!-- Герой-секция с анимированным поездом -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          <span class="line">ПУТЕШЕСТВУЙ</span>
+          <span class="line gold-gradient">С ОГЛУШИТЕЛЬНЫМ ШИКОМ</span>
+        </h1>
+        <p class="hero-sub">Железнодорожные билеты нового поколения. Роскошь, скорость, безупречность.</p>
+
+        <!-- Анимированный поезд (glam) -->
+        <div class="train-glam">
+          <div class="train-body">
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="headlight"></div>
+          </div>
+          <div class="smoke">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="rails">
+            <div class="rail-line"></div>
+            <div class="rail-line"></div>
+          </div>
         </div>
-        <div class="form-group">
-            <label for="email">Электронная почта:</label>
-            <input type="email" id="email" name="email" required>
+
+        <!-- Кнопки действий -->
+        <div class="cta-group">
+          <button class="glam-btn large" id="findBtn"><i class="fas fa-search"></i> НАЙТИ БИЛЕТ</button>
+          <button class="glam-btn large outline" id="vipBtn"><i class="fas fa-crown"></i> ВИП-ПОЕЗД</button>
         </div>
-        <div class="form-group">
-            <label for="password">Пароль:</label>
-            <input type="password" id="password" name="password" required>
+      </div>
+    </section>
+
+    <!-- Блок поиска (нерабочий, но стильный) -->
+    <section class="search-section">
+      <div class="search-card">
+        <div class="search-row">
+          <div class="input-group">
+            <i class="fas fa-map-marker-alt gold"></i>
+            <input type="text" placeholder="Откуда" value="Москва" readonly>
+          </div>
+          <div class="swap-icon"><i class="fas fa-exchange-alt"></i></div>
+          <div class="input-group">
+            <i class="fas fa-map-marker-alt gold"></i>
+            <input type="text" placeholder="Куда" value="Санкт-Петербург" readonly>
+          </div>
         </div>
-        <div class="form-group">
-            <label for="confirm_password">Повторите пароль:</label>
-            <input type="password" id="confirm_password" name="confirm_password" required>
+        <div class="search-row second">
+          <div class="input-group">
+            <i class="fas fa-calendar-alt gold"></i>
+            <input type="text" placeholder="Дата" value="15 июня 2025" readonly>
+          </div>
+          <div class="input-group">
+            <i class="fas fa-user gold"></i>
+            <input type="text" placeholder="Пассажиры" value="1 взрослый" readonly>
+          </div>
+          <button class="glam-btn search-btn" id="fakeSearchBtn"><i class="fas fa-arrow-right"></i> Поиск</button>
         </div>
-        <div class="form-group">
-            <label>
-                <input type="checkbox" name="agreement" required>
-                Я принимаю условия
-            </label>
+        <p class="search-note">* демо-поиск. нажми и наслаждайся гламуром</p>
+      </div>
+    </section>
+
+    <!-- Карточки предложений (чистый стиль) -->
+    <section class="offers">
+      <h2 class="section-title"><span class="gold">ЭКСКЛЮЗИВНЫЕ</span> МАРШРУТЫ</h2>
+      <div class="cards-grid">
+        <div class="card">
+          <i class="fas fa-gem card-icon"></i>
+          <h3>Москва — Дубай</h3>
+          <p>Поезд класса "Люкс". Персональный стюард, шампанское, панорамные окна.</p>
+          <span class="price">от 89 900 ₽</span>
+          <button class="glam-btn card-btn">Забронировать</button>
         </div>
-        <button type="submit">Зарегистрироваться</button>
-    </form>
+        <div class="card">
+          <i class="fas fa-crown card-icon"></i>
+          <h3>Петербург — Париж</h3>
+          <p>Ночной экспресс с рестораном от мишленовского шефа. Спальные вагоны.</p>
+          <span class="price">от 124 500 ₽</span>
+          <button class="glam-btn card-btn">Забронировать</button>
+        </div>
+        <div class="card">
+          <i class="fas fa-star card-icon"></i>
+          <h3>Сочи — Владивосток</h3>
+          <p>Транссибирский гламур. Джакузи на колёсах, кинозал, сомелье.</p>
+          <span class="price">от 299 000 ₽</span>
+          <button class="glam-btn card-btn">Забронировать</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="glam-footer">
+      <p>RAIL LUXE — искусство железнодорожного шика</p>
+      <div class="socials">
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-telegram"></i>
+        <i class="fab fa-youtube"></i>
+      </div>
+      <p class="copy">© 2025 · все билеты ведут в сказку</p>
+    </footer>
+  </div>
+
+  <script src="index.js"></script>
 </body>
 </html>
